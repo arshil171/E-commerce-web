@@ -82,10 +82,25 @@ body{
 #navbar li a.active::after,
 #navbar li a:hover::after{
     content: " ";
-    width: 30%;
+    width: 50%;
     height: 2px;
-    color: #088178;
+    background-color: #088178;
     position: absolute;
     bottom: -4px;
     left: 20px;
 }
+
+
+#navbar li a.cart:hover::after{
+    content: " ";
+    width: 25%;
+    height: 2px;
+    background-color: #088178;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+
+
+
