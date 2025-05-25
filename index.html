@@ -321,7 +321,7 @@
                 <h4 class="price1">$100</h4>
             </div>
              
-              <button id="cart btn"><i class="  fa-solid fa-cart-shopping " ></i></button>
+              <button class="cart btn"><i class="  fa-solid fa-cart-shopping " ></i></button>
            </div>
            
         </div>
@@ -411,37 +411,44 @@
     </footer>
 
 
-   <script>
-    // Load existing cart items from localStorage or initialize an empty array
-let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
+  <script>
 document.querySelectorAll(".btn").forEach(button => {
   button.addEventListener("click", () => {
     const product = button.closest(".pro");
 
     const title = product.querySelector(".product-title").textContent.trim();
-    const price = product.querySelector(".price1").innerText;
+    const priceText = product.querySelector(".price1").textContent.trim();
     const imgSrc = product.querySelector("img").getAttribute("src");
 
-    // Check if product already exists in cart
-    const exists = cartItems.some(item => item.title === title);
+  
+    const price = parseFloat(priceText.replace("$", ""));
 
-    if (exists) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  
+    const isAlreadyInCart = cart.some(item => item.title === title);
+    if (isAlreadyInCart) {
       alert("Product already in cart!");
       return;
     }
 
-    // Add new product to cart
-    const newItem = { title, price, imgSrc, quantity: 1 };
-    cartItems.push(newItem);
+    const newItem = {
+      title,
+      price,
+      imgSrc,
+      quantity: 1
+    };
 
-    // Save updated cart to localStorage
-    localStorage.setItem("cart", JSON.stringify(cartItems));
+    cart.push(newItem);
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     alert(`${title} added to cart!`);
   });
 });
 
-   </script>
+
+
+      
+</script>
 </body>
 </html>
