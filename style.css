@@ -49,9 +49,23 @@ button.normal{
     outline: none;
     transition: 0.2s;
 }
+button.white{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 11px 18px;
+    color: #fff;
+    background-color: transparent;
+   
+    cursor: pointer;
+    border: 1px solid #fff;
+    outline: none;
+    transition: 0.2s;
+}
 body{
     width: 100%;
 }
+
+
 
 
 /* header part  */
@@ -143,6 +157,13 @@ body{
     bottom: -4px;
     /* right: 100px; */
     left: 20px;
+}
+#mobile{
+    display: none;
+    align-items: center;
+}
+#close{
+    display: none;
 }
 
 
@@ -330,14 +351,13 @@ body{
     color: #fff;
 }
 #sm-banner{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    align-items: center;
-    justify-content: center;
-    /* grid-gap: 100px; */
-   
-    background-color: #088178;
+    display: flex;
 
+    justify-content: center;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+   
+   
     
      
    
@@ -354,11 +374,73 @@ body{
     background-size: cover;
     background-position: center;
     padding: 30px;
-    margin-left: 100px;
+    margin-left: 10px;
  
 }
+#sm-banner .banner-box2{
+      background-image: url("./image/banner/b10.jpg");
+}
 
+#sm-banner h4{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+}
+#sm-banner h2{
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
+}
+#sm-banner span{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 15PX;
+}
+#sm-banner .banner-box:hover button{
+    background-color: #088178;
+    border: 1px solid #088178;
+}
+#banner4{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 29px;
+}
 
+#banner4 .banner-box4{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  
+    background-image: url("./image/blog/b7.jpg");
+    min-width: 30%;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    background-color: #088178;
+    padding: 20px;
+    /* margin-left: 10px; */
+    margin-bottom: 20px;
+ 
+}
+#banner4 .banner-box4-2{
+    background-image: url("./image/banner/b4.jpg");
+}
+#banner4 .banner-box4-3{
+    background-image: url("./image/banner/b18.jpg");
+}
+#banner4 h2{
+    color: #fff;
+    font-weight: 900;
+    font-size: 22px;
+}
+#banner4 h3{
+    color: #ec544e;
+    font-weight: 800;
+    font-size: 15px;
+}
 /* // */
 
 
@@ -445,7 +527,55 @@ footer a{
     margin-bottom: 10px;
   
 }
+/* Media Query */
 
+@media(max-width:799px){
+    #navbar {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 300px;
+    background-color: #E3E6F3;
+    box-shadow: 0 40px 60px rgba(0,0, 0,0.1);
+    padding: 80px 0 0 10px;
+    transition: 0.3s;
+}
+#navbar.active{
+    right: 0px;
+}
+
+#navbar li{
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+#mobile{
+    display: block;
+    
+}
+#mobile i{
+    color: #1a1a1a;
+    font-size: 24px;
+    padding-left: 20px;
+
+}
+#close{
+    display: initial;
+    position: absolute;
+    top: 30px;
+    left:30px;
+    color: #222;
+    font-size: 24px;
+}
+#lg-bag{
+    display: none;
+}
+}
 
 /* shop Page  */
 
@@ -483,8 +613,57 @@ color: #fff;
 }
 
 
-/* // */
+/* Single product style  */
+#prodetails{
+    display: flex;
+    margin-top: 20px;
+}
+#prodetails .single-pro-details{
+    width: 50%;
+    padding-top: 30px;
+}
+#prodetails .single-pro-details h4{
+    padding:14px 0 20px 0;
+}
+#prodetails .single-pro-details h2{
+    font-size: 26px;
 
+}
+#prodetails .single-pro-details select{
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+#prodetails .single-pro-details input{
+    width: 50px;
+    height: 47px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+#prodetails .single-pro-details input:focus{
+    outline: none;
+}
+#prodetails .single-pro-details span{
+    line-height: 25px;
+}
+#prodetails .single-pro-details button{
+    background-color: #088178;
+    color: #fff;
+}
+
+#prodetails .single-pro-image{
+      width: 40%;
+      margin-right: 50px;
+}
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+}
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
 
 /* cart page  */
 

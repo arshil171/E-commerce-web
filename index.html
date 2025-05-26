@@ -18,11 +18,17 @@
             <li><a href="blog.html">Blog</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a class="cart" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span class="cart-item-count"></span></a></li>
-            
+            <li id="lg-bag"><a class="cart" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span class="cart-item-count"></span></a></li>
+            <a href="#" id="close"><i class="far fa-times"></i></a>
 
         </ul>
        </div>
+      <div id="mobile">
+            
+            <a class="cart" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span class="cart-item-count"></span></a>
+            <i id="bar" class="fas fa-outdent"></i>
+      </div>
+
     </section>
 
     <section id="hero">
@@ -198,6 +204,9 @@
     </section>
 
 
+   
+
+
 
     <section id="product1" class="section-p1">
         <h2>New Arrivals</h2>
@@ -327,20 +336,41 @@
         </div>
     </section>
 
-    <!-- <section id="sm-banner" class="section-p1">
+    <section id="sm-banner" class="section-p1">
         <div class="banner-box">
             <h4>crazy deals</h4>
             <h2>buy 1 get 1 free</h2>
             <span>The best classic dress is on sale at cara</span>
-            <button>Learn More</button>
+            <button class="white">Learn More</button>
         </div>
-        <div class="banner-box">
-            <h4>crazy deals</h4>
-            <h2>buy 1 get 1 free</h2>
+        <div class="banner-box banner-box2">
+            <h4>spring/summer</h4>
+            <h2>Upcoming deals</h2>
             <span>The best classic dress is on sale at cara</span>
-            <button>Learn More</button>
+            <button class="white">Collection</button>
         </div>
-    </section> ></section> -->
+    </section> 
+
+     <section id="banner4">
+         <div class="banner-box4">
+          
+            <h2>SEASONAL SALE</h2>
+            <h3>Winter Collection -50% OFF</h3>
+            
+        </div>
+        <div class="banner-box4 banner-box4-2">
+          
+            <h2>NEW FOOTWEAR COLLECTION</h2>
+            <h3>Spring / Summer 2022</h3>
+            
+        </div>
+        <div class="banner-box4 banner-box4-3">
+          
+            <h2>T-SHIRTS</h2>
+            <h3>New Trendy Prints</h3>
+            
+        </div>
+    </section>
     
 
     <section id="newsletter" class="section-p1" class="section-m1">
@@ -441,6 +471,7 @@ document.querySelectorAll(".btn").forEach(button => {
 
     cart.push(newItem);
     localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount(1)
 
     alert(`${title} added to cart!`);
   });
@@ -448,7 +479,40 @@ document.querySelectorAll(".btn").forEach(button => {
 
 
 
-      
+      let cartItemCount = 0;
+      const updateCartCount = change =>{
+        const cartItemBadge = document.querySelector(".cart-item-count")
+        cartItemCount += change;
+        if(cartItemCount > 0){
+            cartItemBadge.style.visibility = "visible"
+            cartItemBadge.textContent = cartItemCount;
+        
+            
+        }
+        else{
+             cartItemBadge.style.visibility = "hidden"
+            cartItemBadge.textContent = "";
+          
+        }
+      }
+      console.log(cartItemCount)
+
+      const bar = document.getElementById("bar")
+        const close = document.getElementById("close")
+      const nav = document.getElementById("navbar")
+
+if(bar){
+    bar.addEventListener("click" ,()=> {
+       nav.classList.add('active');
+    })
+}
+if(close){
+    close.addEventListener("click" ,()=> {
+       nav.classList.remove('active');
+    })
+}
 </script>
+
+
 </body>
 </html>

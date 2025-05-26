@@ -211,15 +211,21 @@ function attachEventListeners() {
   document.querySelectorAll(".remove-item").forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
+    
       const index = btn.dataset.index;
       cart.splice(index, 1);
       localStorage.setItem("cart", JSON.stringify(cart));
+     
       renderCart();
+      
     });
   });
 }
 
+
 renderCart();
+
+
 </script>
 </body>
 </html>
